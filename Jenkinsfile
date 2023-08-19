@@ -1,12 +1,12 @@
 stages {
         stage('Clone') {
-        steps {
+                steps {
                 git branch: 'main'
                 url: 'https://github.com/Gamal-Mohammad/project1.git'
                 }
         }
         stage('Build') {
-        steps {
+                steps {
                 sh '''
                 cd "${JENKINS_HOME}/workspace/myjob1"
                 docker build -t appx:v${BUILD_NUMBER} .
@@ -14,21 +14,21 @@ stages {
                 }
         }
         stage('Testing') {
-        steps {
+                steps {
                 sh '''
                 docker run -d --name testapp${BUILD_NUMBER} appx:v${BUILD_NUMBER} .
                 '''
                 }
         }
         stage('Testing2') {
-        steps {
+                steps {
                 sh '''
                 docker rm -f testapp${BUILD_NUMBER}
                 '''
                 }
         }
         stage('Deploy') {
-        steps {
+                steps {
                 sh '''
                 docker run -d --name testapp${BUILD_NUMBER} appx:v${BUILD_NUMBER} .
                 '''
