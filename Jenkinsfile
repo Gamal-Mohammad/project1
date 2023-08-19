@@ -1,4 +1,4 @@
-tages {
+stages {
         stage('Clone') {
         steps {
                 git branch: 'main'
