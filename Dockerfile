@@ -1,5 +1,4 @@
 FROM  docker.io/library/httpd:alpine3.18
-#This line added by gamal 20-3-2024
 ENV APP_NAME=sales_app APP_VERSION=v1.0.0 APP_TITLE=senior
 ENV DEVOPS=GR10
 LABEL test image
